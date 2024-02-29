@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex flex-col justify-center hover:bg-gray-100 transition ease-in-out duration-150  p-2"
-    v-for="tweet in viewTweets" :key="tweet.id"
+
   >
     <div class="flex flex-row justify-between">
       <div class="profile flex flex-row items-between px-2 py-2">
@@ -222,12 +222,23 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import IconText from "./IconText.vue";
 import { useTweetStore } from "@/stores/tweets";
-const tweetStore = useTweetStore();
+export default {
+  props:["tweet"],
+  components:{IconText},
+  setup(){
+    const tweetStore = useTweetStore();
 
-const viewTweets = tweetStore.tweets.reverse();
+
+    const viewTweets = tweetStore.tweets.reverse();
+    
+    return{tweetStore, viewTweets}
+
+  }
+}
+
 
 
 

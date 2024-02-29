@@ -23,7 +23,7 @@ export const useUserStore = defineStore("user", {
     getUser: (state) => state.users,
     getCurrentUser: (state) => state.currentUsers,
   },
-  persist: false  ,
+  persist: true  ,
   actions: {
     setCurrentUser(user) {
       this.currentUsers = user;

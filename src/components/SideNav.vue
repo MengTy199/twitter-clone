@@ -257,11 +257,14 @@
     </div>
   </div>
 
-
+<div class="">
+  <!-- <InputForm class="bg-red-900"/> -->
+</div>
 </template>
 <script setup>
 import IconTextButton from "./buttons/IconTextButton.vue";
 import ButtonCustom from "./buttons/ButtonCustom.vue";
+// import InputForm from "../components/InputForm.vue"
 
 const name = "Mengty";
 const username = "@mengty";

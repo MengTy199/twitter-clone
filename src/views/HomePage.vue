@@ -4,7 +4,8 @@
       <div class="flex flex-row justify-center items-top ">
         <SideNav />
         <div class="flex ">
-          <MiddleNav class="overflow-x-hidden "/>
+          <middle-tap class=""></middle-tap>
+          <!-- <MiddleNav class="overflow-x-hidden "/> -->
           <RightNav />
         </div>
       </div>
@@ -15,6 +16,7 @@
 <script setup>
 import SideNav from "@/components/SideNav.vue";
 import RightNav from "@/components/RightNav.vue";
-import MiddleNav from "@/components/MiddleNav.vue";
+// import MiddleNav from "@/components/MiddleNav.vue";
+import MiddleTap from "../components/buttons/MiddleTap.vue";
 
 </script>
