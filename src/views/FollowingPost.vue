@@ -4,14 +4,16 @@
     <div v-for="tweet in taskFollowing" :key="tweet.id">
       <PostView :tweet="tweet" />
     </div>
+    <loading-page/>
   </div>
 </template>
 
 <script>
-import PostView from "@/components/PostView.vue";
+import PostView from "@/components/modal/PostView.vue";
 import InputForm from "../components/InputForm.vue";
+import LoadingPage from '@/components/loading/LoadingPage.vue';
 export default {
-  components: { PostView, InputForm },
+  components: { PostView, InputForm, LoadingPage },
   data() {
     return {
       taskFollowing: [

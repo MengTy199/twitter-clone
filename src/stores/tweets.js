@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-export const useTweetStore = defineStore("abc", {
+export const useTweetStore = defineStore("tweet", {
   state: () => ({
     tweets: [],    
   }),
@@ -8,6 +8,7 @@ export const useTweetStore = defineStore("abc", {
     nextId() {
       return this.tweets.length + 1; // Get the length of the tweets array + 1
     },
+    getTweetsPost : (state) => state.tweets.length,
   },
   actions: {
     deteteTweet(){

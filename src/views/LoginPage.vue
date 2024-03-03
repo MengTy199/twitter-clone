@@ -7,7 +7,7 @@
         <p
           class="w-full bg-gray-700 text-gray-50 py-1 px-10 cursor-pointer rounded-lg"
         >
-          Welcom to Twitter 
+          Welcom to Twitter
         </p>
         <form @submit.prevent="handleLogin" class="space-y-4 w-300 mx-auto">
           <div class="w-full flex flex-row justify-between">
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { mapState , mapActions} from "pinia";
+import { mapState, mapActions } from "pinia";
 
 import { useUserStore } from "../stores/user";
 export default {
@@ -59,20 +59,24 @@ export default {
   methods: {
     handleLogin() {
       // console.log(this.email , this.password) return true or false
-      console.log(this.getUser[0]);
+      // console.log(this.getUser[0]);
       if (this.checkLogin(this.username, this.password)) {
-        this.$router.push('/homePage')
+        this.$router.push("/homePage");
       }
 
       this.username = "";
       this.password = "";
     },
-    ...mapActions(useUserStore, ['setCurrentUser']),
+    ...mapActions(useUserStore, ["setCurrentUser", "updateUser", ]),
+    updateUser(id) {
+      this.id === id;
+    },
     checkLogin(username, password) {
       let ckeck = false;
-      this.getUser.forEach((item) => {
+      this.getUser.forEach( (item) => {
         if (item.username === username && item.password === password) {
-          this.setCurrentUser(item)
+          this.setCurrentUser(item);
+          this.isLoggedIn = true;
           ckeck = true;
         }
       });
@@ -81,7 +85,7 @@ export default {
   },
 
   computed: {
-    ...mapState(useUserStore, ["getUser"]),
+    ...mapState(useUserStore, ["getUser", "isLoggedIn"]),
   },
 };
 </script>

@@ -155,10 +155,10 @@
       </div>
     </div>
     <!-- button -->
-    <div class="flex flex-row items-center justify-end mr-4">
+    <div class="flex flex-row items-center justify-end mr-4 mb-4">
       <button
         type="submit"
-        class="inline-flex items-end px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-3xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+        class=" inline-flex items-end px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-3xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
       >
         <span class="text-sm">post</span>
       </button>

@@ -1,17 +1,21 @@
 <template>
   <div
-    class="block w-0 md:w-[200px] xl:w-[350px] md:flex xl:flex xl:flex-row justify-end sticky top-0 h-screen md:sticky xl:sticky overflow-auto"
+    class="block md:w-[200px] xl:w-[350px] md:flex xl:flex xl:flex-row justify-end sticky top-0 h-screen md:sticky xl:sticky overflow-auto"
   >
     <div class="flex justify-between flex-col h-screen items-center">
       <div
         class="flex flex-col justify-center space-y-2 md:w-auto items-center xl:items-start md:items-start px-10"
       >
+
+      <router-link  @click="userStore.logout" to="/">
         <img
-          src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/f8dc5431091769.5640f77be5837.png"
-          class="w-16 md:w-20 xl:w-20 -left-5 hidden md:block xl:block"
-        />
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/f8dc5431091769.5640f77be5837.png"
+            class="w-16 md:w-20 xl:w-20 -left-5 hidden md:block xl:block"
+          />
+      </router-link>
+         
         <!-- Home -->
-        <IconTextButton nameButton="Home">
+        <IconTextButton nameButton="Home" @click="toggleModal">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="25"
@@ -222,17 +226,17 @@
 
         <ButtonCustom
           name="Post"
-          class="bg-blue-600 hover:bg-blue-700 w-full py-3 text-[17px] "
+          class="bg-blue-600 hover:bg-blue-700 w-full py-3 text-[17px]"
         />
       </div>
 
       <div class="w-full p-2">
         <div
-          class="w-full py-2 px-3 hover:bg-gray-200 hover:cursor-pointer flex flex-row justify-between rounded-full items-center "
+          class="w-full py-2 px-3 hover:bg-gray-200 hover:cursor-pointer flex flex-row justify-between rounded-full items-center"
         >
-          <div class="flex flex-row  items-center">
+          <div class="flex flex-row items-center">
             <img
-              :src="pf"
+              :src="userStore.getpf"
               alt="pf"
               class="w-14 rounded-full h-14 object-cover"
             />
@@ -241,33 +245,111 @@
                 class="text-sm font-bold tracking-tight text-gray-900 dark:text-white"
               >
                 <div class="flex flex-col">
-                  <span class=""> {{ name }} </span>
+                  <span class="">
+                    {{ userStore.getCurrentUser.username }}
+                  </span>
                   <span class="text-[12px] font-normal">
-                    {{ username }}
+                    {{ userStore.getCurrentUser.email }}
                   </span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="icon ">
+          <div class="icon">
             <i class="fa-solid fa-ellipsis"></i>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-<div class="">
-  <!-- <InputForm class="bg-red-900"/> -->
-</div>
+  <ReuseModal
+    :modalActive="modalActive"
+    class="absolute flex justify-center flex-col top-0 left-0"
+  >
+    <div class="relative p-4 w-full max-w-md max-h-full">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <!-- Modal header -->
+        <div
+          class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+        >
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+            Image Url
+          </h3>
+          <button
+            @click="toggleModal"
+            type="button"
+            class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            <svg
+              class="w-3 h-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+              />
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="p-4 md:p-5">
+          <div>
+            <label
+              for="image"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Your Image</label
+            >
+            <input
+              type="text"
+              id="image"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              placeholder="name@company.com"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </ReuseModal>
 </template>
 <script setup>
 import IconTextButton from "./buttons/IconTextButton.vue";
 import ButtonCustom from "./buttons/ButtonCustom.vue";
+import ReuseModal from "./modal/ReuseModal.vue";
+// import { ref } from "vue";
+// import ModalView from "./modal/ModalView.vue";
 // import InputForm from "../components/InputForm.vue"
 
-const name = "Mengty";
-const username = "@mengty";
-const pf =
-  "https://i.pinimg.com/236x/73/bc/e7/73bce786ccef5b8a7b51e5527531f95c.jpg";
+// export default {
+//   components: { IconTextButton, ButtonCustom, ReuseModal },
+//   setup() {
+//     const modalActive = ref(false);
+
+//     const toggleModal = () => {
+//       modalActive.value = !modalActive.value;
+//     };
+
+//     return { modalActive, toggleModal };
+//   },
+//   data() {
+//     return {
+//       title: "My First Vue App",
+//       name: "Mengty",
+//       username: "@mengty",
+//       pf: "https://i.pinimg.com/236x/73/bc/e7/73bce786ccef5b8a7b51e5527531f95c.jpg",
+//     };
+//   },
+// };
+
+import { useUserStore } from "@/stores/user";
+
+const userStore = useUserStore();
 </script>
