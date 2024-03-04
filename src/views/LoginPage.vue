@@ -1,44 +1,49 @@
 <template>
-  <div class="h-screen flex flex-col justify-center">
-    <div class="mx-auto w-450 h-64 md:w-600 shadow-xl border-2 rounded-lg">
-      <div
-        class="container flex flex-col justify-stretch text-center space-y-6"
-      >
-        <p
-          class="w-full bg-gray-700 text-gray-50 py-1 px-10 cursor-pointer rounded-lg"
+  <div class="h-screen flex flex-col justify-center xl:justify-center items-center w-screen ">
+    <div class=" grid gird-cols-1  md:grid-cols-2 xl:grid-cols-2 w-full">
+      <div class="mx-auto w-full  md:w-600">
+        <img
+          src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/f8dc5431091769.5640f77be5837.png"
+          alt=""
+        />
+      </div>
+      <div class="mx-auto  shadow-xl border-2 rounded-lg p-5 md:p-5 xl:p-10 flex flex-col justify-center">
+        <div
+          class="container flex flex-col justify-stretch text-center space-y-6"
         >
-          Welcom to Twitter
-        </p>
-        <form @submit.prevent="handleLogin" class="space-y-4 w-300 mx-auto">
-          <div class="w-full flex flex-row justify-between">
-            <label for="username" class="left-0">username</label>
-            <input
-              class="rounded-md border-none hover:border-gray-600 py-1"
-              type="text"
-              placeholder="Enter your Email"
-              v-model="username"
-              id="username"
-            />
-          </div>
-          <div class="w-full flex flex-row justify-between">
-            <label for="password" class="text-left">Password</label>
-            <input
-              class="rounded-md border-none hover:border-gray-600 py-1"
-              type="password"
-              placeholder="Enter your Password"
-              v-model="password"
-              id="password"
-            />
-          </div>
-          <div class="flex flex-col w-full">
-            <button
-              type="submit"
-              class="w-full bg-gray-700 text-gray-50 py-1 px-10 cursor-pointer rounded-lg"
-            >
-              <p class="text-cente">Login</p>
-            </button>
-          </div>
-        </form>
+          <form @submit.prevent="handleLogin" class="space-y-6 w-350 mx-auto   ">
+            <div class="w-full flex flex-col xl:flex-row items-start justify-start xl:justify-center ">
+              <label for="username" class="left-0 space-y-2">Username</label>
+              <input
+                class="rounded-md border-[1px] w-full hover:border-gray-600 py-1 space-y-2"
+                type="text"
+                placeholder="Enter your Email"
+                v-model="username"
+                id="username"
+                required
+              />
+            </div>
+            <div class="w-full flex flex-col xl:flex-row items-start justify-start xl:justify-center">
+              <label for="password" class="text-left">Password</label>
+              <input
+                class="rounded-md border-[1px] w-full hover:border-gray-600 py-1"
+                type="password"
+                placeholder="Enter your Password"
+                v-model="password"
+                id="password"
+                required
+              />
+            </div>
+            <div class="flex flex-col w-full">
+              <button
+                type="submit"
+                class="w-full bg-gray-700 text-gray-50 x-1 px-10 py-1 xl:py-2 cursor-pointer rounded-lg"
+              >
+                <p class="text-cente">Login</p>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -67,13 +72,13 @@ export default {
       this.username = "";
       this.password = "";
     },
-    ...mapActions(useUserStore, ["setCurrentUser", "updateUser", ]),
+    ...mapActions(useUserStore, ["setCurrentUser", "updateUser"]),
     updateUser(id) {
       this.id === id;
     },
     checkLogin(username, password) {
       let ckeck = false;
-      this.getUser.forEach( (item) => {
+      this.getUser.forEach((item) => {
         if (item.username === username && item.password === password) {
           this.setCurrentUser(item);
           this.isLoggedIn = true;
