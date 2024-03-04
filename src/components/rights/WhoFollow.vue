@@ -50,15 +50,15 @@ export default {
       follows: [
         {
           id: 1,
-          name: "Mengty",
-          userName: "@mengty",
-          pf: "https://scontent.fpnh8-1.fna.fbcdn.net/v/t39.30808-6/393743317_287659637446687_8247362444497115158_n.jpg?stp=cp6_dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFwjqNW28QSC4AzI6ELCkYhY3N5DB73P19jc3kMHvc_X_3zPMLdI3aMLJ5jycAj2ah3ufhAoHrp9degGGFiol-o&_nc_ohc=9FrNovSIULoAX_AgF7B&_nc_zt=23&_nc_ht=scontent.fpnh8-1.fna&oh=00_AfA4ICvHukXUGu8EGcD62k6Ib0ViE0YrTAPilKuQ-eSnuA&oe=65E40DC9",
+          name: "Bill Gates",
+          userName: "@billgates",
+          pf: "https://pbs.twimg.com/profile_images/1674815862879178752/nTGMV1Eo_400x400.jpg",
         },
         {
           id: 2,
-          name: "Mengty",
-          userName: "@mengty",
-          pf: "https://scontent.fpnh8-1.fna.fbcdn.net/v/t39.30808-6/393743317_287659637446687_8247362444497115158_n.jpg?stp=cp6_dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFwjqNW28QSC4AzI6ELCkYhY3N5DB73P19jc3kMHvc_X_3zPMLdI3aMLJ5jycAj2ah3ufhAoHrp9degGGFiol-o&_nc_ohc=9FrNovSIULoAX_AgF7B&_nc_zt=23&_nc_ht=scontent.fpnh8-1.fna&oh=00_AfA4ICvHukXUGu8EGcD62k6Ib0ViE0YrTAPilKuQ-eSnuA&oe=65E40DC9",
+          name: "Elon Musk",
+          userName: "@elonmusk",
+          pf: "https://pbs.twimg.com/profile_images/1683325380441128960/yRsRRjGO_400x400.jpg",
         },
       ],
     };

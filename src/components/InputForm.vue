@@ -240,6 +240,7 @@ export default {
     onMounted(() => {
       initFlowbite();
     });
+    // let text = ref(text)
     // store in ref
     const newTweet = ref({
       byUser: userStore.currentUsers.username,

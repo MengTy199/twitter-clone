@@ -1,17 +1,18 @@
 <template>
-  <div class="flex flex-col justify-center w-600">
+  <transition appear name="fade">
+  <div class="flex flex-col justify-center w-400  xs:w-450 md:w-450 xl:w-600 overflow-hidden">
     <div
       class="border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-gray-50 z-10 shadow-md"
     >
       <ul
-        class="flex flex-row justify-center items-center w-full -mb-px text-sm font-medium text-center text-md"
+        class="flex flex-row justify-between items-center w-full -mb-px text-[11px] xl:font-medium text-center xl:text-[16px] h-12 xl:h-full"
         id="default-tab"
         data-tabs-toggle="#default-tab-content"
         role="tablist"
       >
-        <li class="me-2 w-200" role="presentation">
+        <li class="xl:me-2" role="presentation">
           <button
-            class="inline-block p-4 border-b-4 rounded-t-lg"
+            class="inline-block p-4 border-b-2 xl:border-b-4 rounded-t-lg"
             id="Posts-tab"
             data-tabs-target="#Posts"
             type="button"
@@ -22,9 +23,9 @@
             Posts
           </button>
         </li>
-        <li class="me-2 w-200" role="presentation">
+        <li class="xl:me-2" role="presentation">
           <button
-            class="inline-block p-4 border-b-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+            class="inline-block p-4 border-b-2 xl:border-b-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
             id="Replies-tab"
             data-tabs-target="#Replies"
             type="button"
@@ -35,9 +36,9 @@
             Replies
           </button>
         </li>
-        <li class="me-2 w-200" role="presentation">
+        <li class="xl:me-2" role="presentation">
           <button
-            class="inline-block p-4 border-b-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+            class="inline-block p-4 border-b-2 xl:border-b-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
             id="Highlight-tab"
             data-tabs-target="#Highlight"
             type="button"
@@ -49,9 +50,9 @@
           </button>
         </li>
 
-        <li class="me-2 w-200" role="presentation">
+        <li class="xl:me-2 " role="presentation">
           <button
-            class="inline-block p-4 border-b-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+            class="inline-block p-4  border-b-2 xl:border-b-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
             id="Articles-tab"
             data-tabs-target="#Articles"
             type="button"
@@ -62,9 +63,9 @@
             Articles
           </button>
         </li>
-        <li class="me-2 w-200" role="presentation">
+        <li class="xl:me-2 " role="presentation">
           <button
-            class="inline-block p-4 border-b-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+            class="inline-block p-4 border-b-2 xl:border-b-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
             id="Media-tab"
             data-tabs-target="#Media"
             type="button"
@@ -76,9 +77,9 @@
           </button>
         </li>
 
-        <li class="me-2 w-200" role="presentation">
+        <li class="xl:me-2 " role="presentation">
           <button
-            class="inline-block p-4 border-b-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+            class="inline-block p-4 border-b-2 xl:border-b-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
             id="Likes-tab"
             data-tabs-target="#Likes "
             type="button"
@@ -144,6 +145,8 @@
       </div>
     </div>
   </div>
+
+  </transition>
 </template>
 
 <script setup>
@@ -157,3 +160,17 @@ onMounted(() => {
   initFlowbite();
 });
 </script>
+<style>
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 3s ease;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-leave-active {
+  transition: opacity 3s ease;
+}
+</style>

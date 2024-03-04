@@ -1,5 +1,8 @@
 <template>
-    <div class="middle w-450 md:w-450 xl:w-600 border-[1px] ">
+  <transition appear name="fade">
+  
+
+    <div class="middle w-400 xs:w-450 md:w-450 xl:w-600 border-[1px] ">
       <input-form />
       <!-- post view -->
       <div v-for="tweet in viewTweets" :key="tweet.id">
@@ -12,6 +15,7 @@
       <loading-page/>
       
     </div>
+  </transition>
 </template>
 
 //
@@ -31,3 +35,17 @@ export default {
   },
 };
 </script>
+<style>
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 3s ease;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-leave-active {
+  transition: opacity 3s ease;
+}
+</style>

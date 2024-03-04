@@ -1,7 +1,8 @@
 <template>
+  <transition appear name="fade">
   <div class="hidden md:block xl:block w-450 max-h-screen sticky top-0">
     <div
-      class="hidden md:flex flex-col px-8 md:w-350 xl:w-450 h-screen fixed top-2 right-30"
+      class="hidden md:flex flex-col px-5 md:w-350 xl:w-450 h-screen fixed top-2 "
     >
       <div
         class="flex flex-col justify-center items-center sticky h-14 top-0 z-20 bg-white"
@@ -45,7 +46,7 @@
         </div>
       </div>
 
-      <div class="overflow-y-scroll overflow-hidden example">
+      <div class="overflow-y-scroll overflow-hidden example ">
         <!-- subscribe -->
         <box-right>
           <div class="h-[150px] flex flex-col justify-center">
@@ -105,7 +106,7 @@
         <!-- follow who -->
         <who-follow/>
         <div class="footer pb-10 pt-4">
-          <p class="text-[12px] flex flex-row justify-evenly">
+          <p class="text-sm flex flex-row justify-evenly">
             <a href="https://twitter.com/en/tos" target="_blank" class="hover:border-b-[1px] border-black"
               >Terms of Service</a
             >
@@ -117,7 +118,7 @@
             >
           </p>
           <div class="box ">
-            <p class="text-[12px] flex flex-row justify-evenly mt-2">
+            <p class="text-sm flex flex-row justify-evenly mt-2">
             <a href="#" class="hover:border-b-[1px] border-black"
               >Accessibility</a
             >
@@ -131,6 +132,8 @@
     </div>
 
   </div>
+
+  </transition>
 </template>
 
 <script setup>
@@ -189,4 +192,16 @@ const trends = [
 .example::-webkit-scrollbar {
   display: none;
 }
+.fade-enter-from{
+    opacity: 0;
+  }
+  .fade-enter-active{
+    transition: opacity 3s ease;
+  }
+  .fade-leave-to{
+    opacity: 0;
+  }
+  .fade-leave-active{
+    transition: opacity 3s ease;
+  }
 </style>

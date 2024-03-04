@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-white scroll-smooth ">
-    <div class="flex flex-row justify-center items-top">
-      <SideNav />
+  <div class="bg-white scroll-smooth w-full ">
+    <div class=" mx-auto container flex flex-row justify-center items-top ">
+      <SideNav :class="'hidden xl:block h-screen'" />
       <div class="flex flex-row items-center justify-around">
         <div class="flex flex-col items-center justify-center">          <!-- Profile -->
           <profile-middle/>

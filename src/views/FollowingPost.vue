@@ -1,5 +1,5 @@
 <template>
-    <div class="w-450 md:w-450 xl:w-600 border-[1px]">
+    <div class="w-400 xs:w-450 md:w-450 xl:w-600 border-[1px]">
       <InputForm />
     <div v-for="tweet in taskFollowing" :key="tweet.id">
       <PostView :tweet="tweet" />
