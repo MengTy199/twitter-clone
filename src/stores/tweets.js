@@ -21,7 +21,7 @@ export const useTweetStore = defineStore("tweet", {
       }
       // Create a new tweet object with required properties:
       const fullTweet = {
-        id: this.nextId,
+        id: this.nextId || 1,
         byUser: newTweet.byUser || "", // Set default value if not provided
         text: newTweet.text || "",
         image: newTweet.image || null,
