@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex flex-col justify-center xl:justify-center items-end xl:w-[80%] w-full xl:p-0 px-4  ">
+  <div class="h-screen flex flex-col justify-center xl:justify-center items-center xl:w-[80%] w-full xl:p-0 px-4  ">
     <div class=" grid gird-cols-1  md:grid-cols-2 xl:grid-cols-2 w-full">
       <div class="mx-auto xl:w-600">
         <img
