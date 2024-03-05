@@ -1,17 +1,11 @@
 <template>
   <transition appear name="fade">
-  
-
     <div class="middle w-400 xs:w-450 md:w-450 xl:w-600 border-[1px] h-screen">
       <input-form />
       <!-- post view -->
       <div  v-for="(tweet,id) in viewTweets" :key="id">
         <post-view :tweet="tweet" />
       </div>
-      <!-- <post-view/> -->
-
-      <!-- lodaing -->
-
       <loading-page/>
       
     </div>

@@ -2,7 +2,7 @@
   <transition appear name="fade">
     <div
       :class="cl"
-      class="block md:w-[200px] xl:w-600 md:flex xl:flex xl:flex-row justify-end sticky top-0 h-screen md:sticky xl:sticky overflow-auto"
+      class="block md:w-[200px] xl:w-600 md:flex xl:flex xl:flex-row justify-end  top-0 h-screen md:sticky xl:sticky overflow-auto"
     >
       <div class="flex justify-between flex-col h-screen items-center">
         <div

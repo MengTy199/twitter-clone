@@ -2,7 +2,7 @@
   <transition appear name="fade">
     <div class="flex flex-col justify-center  ">
       <div
-        class="border-b border-gray-200 dark:border-gray-700 md:sticky md:top-0 xl:sticky xl:top-0 bg-gray-50 z-10 shadow-md"
+        class="border-b border-gray-200 dark:border-gray-700 md:sticky md:top-0 xl:sticky xl:top-0 bg-gray-50 z-10 shadow-md "
       >
         <ul
           class="flex flex-row justify-center items-center w-full -mb-px text-sm font-medium text-center"
@@ -65,7 +65,7 @@ import ForYou from "@/views/ForYou.vue";
 import FollowingPost from "@/views/FollowingPost.vue";
 
 export default {
-  components: { ForYou, FollowingPost },
+  components: { FollowingPost,ForYou },
 };
 </script>
 <style>
