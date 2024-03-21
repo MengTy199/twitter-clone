@@ -25,7 +25,7 @@ export const useUserStore = defineStore("storeUser", {
     getCurrentUser: (state) => state.currentUsers,
     getpf: (state)=> state.currentUsers.pf,
   },
-  persist: true  ,
+  persist: true ,
   actions: {
     setCurrentUser(user) {
       this.isLoggedIn=true;

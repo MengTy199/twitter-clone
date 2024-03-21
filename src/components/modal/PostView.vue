@@ -7,7 +7,7 @@
         <div class="profile flex flex-row items-between px-2 py-2">
           <router-link to="/profile">
             <img
-              :src="userStore.getpf"
+              src=""
               class="rounded-[50%] min-h-12 min-w-12 max-w-12 max-h-12"
             />
           </router-link>
@@ -15,9 +15,9 @@
             <div>
               <span
                 class="font-bold capitalize hover:border-b-2 text-gray-600 hover:border-gray-900 hover:cursor-pointer"
-                >{{ userStore.getCurrentUser.username }}</span
+                >{{ tweet.byUser }}</span
               >
-              <span class="text-sm">.{{ tweet.date }}</span>
+              <span class="text-sm">.{{ tweet.createdDate }}</span>
             </div>
             <span class="">{{ tweet.text }}</span>
           </div>
@@ -32,7 +32,7 @@
         <img :src="tweet.image" class="rounded-xl object-contain w-30" />
       </div>
       <div
-        class="action flex flex-row algin-center justify-between ml-10 xl:text-xl md:text-md text-ls"
+        class="action flex flex-row align-center justify-between ml-10 xl:text-xl md:text-md text-ls"
       >
         <icon-text
           nameButton="637"
@@ -78,19 +78,9 @@
 
 <script>
 import IconText from "../buttons/IconText.vue";
-import { useTweetStore } from "@/stores/tweets";
-import { useUserStore } from "@/stores/user";
-// import ModalDelete from "./ModalDelete.vue";
-
 export default {
   props: ["tweet"],
   components: { IconText },
-  setup() {
-    const tweetStore = useTweetStore();
-    const viewTweets = tweetStore.tweets.reverse();
-    const userStore = useUserStore();
-    return { tweetStore, viewTweets, userStore };
-  },
 };
 </script>
 

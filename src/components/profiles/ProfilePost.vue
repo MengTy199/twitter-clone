@@ -112,7 +112,7 @@
         </div>
       </div>
       <!-- post view -->
-      <div v-for="tweet in viewTweets" :key="tweet.id">
+      <div v-for="tweet in tweetStore.tweets" :key="tweet.id">
         <post-view :tweet="tweet" />
       </div>
 
@@ -136,13 +136,13 @@ export default {
   setup() {
     const tweetStore = useTweetStore();
 
-    function singleItem(name) {
-      return name.id === 1;
-    }
+    // function singleItem(_id) {
+    //   return _id === '65fba211633347bd27893691';
+    // }
 
-    const viewTweets = tweetStore.tweets.filter(singleItem);
+    // const viewTweets = tweetStore.tweets.filter(singleItem);
 
-    return { tweetStore, viewTweets };
+    return { tweetStore };
   },
 };
 </script>

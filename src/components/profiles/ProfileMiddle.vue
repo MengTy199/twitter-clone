@@ -36,7 +36,7 @@
 
     <div class="h-28 bg-white px-4 w-300 xs:w-350  xs:px-2 md:w-450 xl:w-full">
       <div class="name">
-        <h1 class="text-sm xl:text-md font-bold">{{ userStore.getCurrentUser.username }}</h1>
+        <h1 class="text-sm xl:text-md font-bold">{{userStore.getCurrentUser.username  }}</h1>
         <p class="text-ls xl:text-sm text-gray-400">@Limmengty</p>
       </div>
       <div class="following flex flex-col mt-2 justify-start">
@@ -64,19 +64,21 @@
   </transition>
 </template>
 
-<script setup>
+<script>
 import ProfileTap from "../profiles/ProfileTap.vue";
 import ProfileModal from "../profiles/ProfileModal.vue";
-
-// export default {
-//   components: { ButtonCustom },
-// };
-import { useTweetStore } from "@/stores/tweets";
 import { useUserStore } from "@/stores/user";
+import { useTweetStore } from "@/stores/tweets";
+// import {mapActions, mapState} from "pinia";
 
-
-const userStore = useUserStore();
-const tweetStore = useTweetStore();
+export default {
+  components: { ProfileModal, ProfileTap },
+  setup(){
+    const userStore = useUserStore();
+    const tweetStore = useTweetStore();
+    return {userStore, tweetStore}
+  }
+};
 
 </script>
 <style>

@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
-export const useTweetStore = defineStore("tweet", {
+import axios from "axios";
+export const useTweetStore = defineStore("tweets", {
   state: () => ({
-    tweets: [],    
+    tweets: [],
   }),
   getters: {
     getTweets: (state) => state.tweets,
@@ -11,9 +12,6 @@ export const useTweetStore = defineStore("tweet", {
     getTweetsPost : (state) => state.tweets.length,
   },
   actions: {
-    deteteTweet(){
-      this.tweets.pop();
-    },
     addTweet(newTweet) {
       // Validate data type (optional):
       if (!newTweet || typeof newTweet !== 'object') {
@@ -38,7 +36,17 @@ export const useTweetStore = defineStore("tweet", {
       //   state.tweets = updatedTweets;
       // });
     },
+    async fetchTweets(){
+      try{
+        const response = await axios.get('http://localhost:3000/api/tweets')
+        this.tweets = response.data
+        // console.log(response.data)
+      }catch (e){
+        console.log(e)
+      }
+
+    },
   },
-  
-  persist: true
+
+  // persist: true
 });
