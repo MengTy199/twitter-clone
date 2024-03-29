@@ -7,7 +7,6 @@ export const useAuthStore = defineStore("auth", {
         loggedUser: {},// user object
         userId: ''
     }),
-    persist: true,
     actions: {
         async login(email, password) {
             try {
@@ -53,4 +52,5 @@ export const useAuthStore = defineStore("auth", {
             }
         }
     },
+    persist: true,
 });
