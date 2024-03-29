@@ -56,13 +56,11 @@
           <div class="space-y-6 xl:w-350 w-300  mx-auto   ">
             <button
                 @click="handleGoogleLogin"
-                type="submit"
                 class="flex flex-row items-center justify-evenly w-full bg-gray-700 text-gray-50 x-1 px-10 py-1 xl:py-2 cursor-pointer rounded-lg"
             >
               <i class="fa-brands fa-google"></i>
               <p class="text-center">{{name}}</p>
             </button>
-
           </div>
         </div>
       </div>
@@ -83,8 +81,6 @@ export default {
 
     return {
       name: "Login With Google",
-      // username: "",
-      // password: "",
       user_obj: {
         email: "",
         password: ""
@@ -94,10 +90,6 @@ export default {
   },
   computed:{
     ...mapState(useAuthStore, ["token"]),
-  },
-  created() {
-    console.log(process.env.VUE_APP_GOOGLE_CLIENT_ID)
-    console.log(process.env.VUE_APP_GOOGLE_CALLBACK)
   },
 
   methods: {
@@ -110,11 +102,9 @@ export default {
       }
     },
     handleGoogleLogin(){
-      const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.VUE_APP_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.VUE_APP_GOOGLE_CALLBACK}&response_type=code&scope=profile email`;
+      const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.VUE_APP_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.VUE_APP_GOOGLE_CALLBACK}&scope=profile email&response_type=code`;
     //   open new window
       window.location.href = url
-
-
     }
     // async handleLogin(){
     //   const {data} = await axios.post("/api/auth/login",{

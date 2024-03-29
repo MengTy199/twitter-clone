@@ -1,8 +1,11 @@
-import { defineStore } from "pinia";
+import {defineStore} from "pinia";
 import axios from "axios";
+import {useAuthStore} from "@/stores/auth";
+
 export const useTweetStore = defineStore("tweets", {
   state: () => ({
     tweets: [],
+
   }),
   getters: {
     getTweets: (state) => state.tweets,
@@ -10,6 +13,8 @@ export const useTweetStore = defineStore("tweets", {
       return this.tweets.length + 1; // Get the length of the tweets array + 1
     },
     getTweetsPost : (state) => state.tweets.length,
+
+
   },
   actions: {
     addTweet(newTweet) {
@@ -37,10 +42,20 @@ export const useTweetStore = defineStore("tweets", {
       // });
     },
     async fetchTweets(){
+
       try{
-        const response = await axios.get('http://localhost:3000/api/tweets')
-        this.tweets = response.data
-        // console.log(response.data)
+        const auth = useAuthStore()
+        const id = auth.userId;
+        const token = auth.token;
+        console.log(id)
+        // const response = await axios.get('http://localhost:3000/api/tweets')
+        const response = await axios.get(`http://localhost:3000/api/users/${id}/tweets`,{
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        console.log(response.data)
+        this.tweets = response.data.tweets
       }catch (e){
         console.log(e)
       }
@@ -48,5 +63,5 @@ export const useTweetStore = defineStore("tweets", {
     },
   },
 
-  // persist: true
+  persist: true
 });

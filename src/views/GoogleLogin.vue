@@ -49,12 +49,10 @@ import {mapActions} from "pinia";
 
 export default {
   async mounted() {
+    const code = await this.$route.query.code
     try{
-      const code = this.$route.query.code
-      console.log(code)
-      await this.googleLogin(code)
-      this.$router.push('/homePage')
-      console.log("mounted end ")
+        await this.googleLogin(code)
+        this.$router.push('/homePage')
     }catch (e){
       // this.$toast.open('Error Login');
     }

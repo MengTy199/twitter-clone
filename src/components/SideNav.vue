@@ -1,7 +1,7 @@
 <template>
   <transition appear name="fade">
     <div
-        :class="cl"
+        :class="p"
         class="block md:w-[200px] xl:w-600 md:flex xl:flex xl:flex-row justify-end  top-0 h-screen md:sticky xl:sticky overflow-auto"
     >
       <div class="flex justify-between flex-col h-screen items-center">
@@ -247,10 +247,10 @@
                 >
                   <div class="flex flex-col">
                     <span class="">
-                      {{ loggedUser.email }}
+                      {{fullName }}
                     </span>
                     <span class="text-[12px] font-normal">
-                      {{ loggedUser.email }}
+                      {{ loggedUser.id.email }}
                     </span>
                   </div>
                 </div>
@@ -268,6 +268,8 @@
 <script>
 import IconTextButton from "./buttons/IconTextButton.vue";
 import ButtonCustom from "./buttons/ButtonCustom.vue";
+import {mapState} from "pinia";
+import {useAuthStore} from "@/stores/auth";
 // import ReuseModal from "./modal/ReuseModal.vue";
 // import { ref } from "vue";
 // import ModalView from "./modal/ModalView.vue";
@@ -294,13 +296,17 @@ import ButtonCustom from "./buttons/ButtonCustom.vue";
 //   },
 // };
 export default {
+  data(){
+    return{
+      fullName: ''
+    }
+  },
   components: {
     IconTextButton, ButtonCustom,
 
   },
-  computed:{
-    ...mapState(useUserStore, ["getpf", "getCurrentUser", "getCurrentUser"]),
-    ...mapState(useAuthStore, ["token", "loggedUser"])
+    computed:{
+      ...mapState(useAuthStore, ["token", "loggedUser"])
   },
   methods: {
     ...mapActions(useAuthStore, ["logout"]),
@@ -308,9 +314,7 @@ export default {
 
   }
 }
-import {useAuthStore} from "@/stores/auth";
-import {useUserStore} from "@/stores/user";
-import {mapActions, mapState} from "pinia";
+import {mapActions} from "pinia";
 // const userStore = useUserStore()
 
 // const authStore = useAuthStore();
