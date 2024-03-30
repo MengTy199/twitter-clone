@@ -7,7 +7,7 @@
         <div class="profile flex flex-row items-between px-2 py-2">
           <router-link to="/profile">
             <img
-              src=""
+              src="https://pbs.twimg.com/profile_images/1761779790766301184/ewiRdecM_400x400.jpg"
               class="rounded-[50%] min-h-12 min-w-12 max-w-12 max-h-12"
             />
           </router-link>

@@ -18,7 +18,7 @@
     <div class="h-20 relative w-400 px-2 xs:w-450 md:w-450 xl:w-600 ">
       <div class="absolute -top-[100%] left-5">
         <img
-          :src="userStore.getpf"
+          src="https://pbs.twimg.com/profile_images/1761779790766301184/ewiRdecM_400x400.jpg"
           class="border-4 border-white rounded-full w-32 h-32 top-0 left-0 hover:cursor-pointer transition-all"
         />
       </div>

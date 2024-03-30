@@ -237,7 +237,7 @@
           >
             <div class="flex flex-row items-center">
               <img
-                  :src="getpf"
+                  src="https://pbs.twimg.com/profile_images/1761779790766301184/ewiRdecM_400x400.jpg"
                   alt="pf"
                   class="w-14 rounded-full h-14 object-cover"
               />
