@@ -309,7 +309,7 @@ export default {
       ...mapState(useAuthStore, ["token", "loggedUser"])
   },
   methods: {
-    ...mapActions(useAuthStore, ["logout"]),
+    ...mapActions(useAuthStore, ["createTweets"]),
     // ...mapActions(useUserStore, [""]),
 
   }
