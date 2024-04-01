@@ -29,6 +29,7 @@
                 id="email"
                 required
               />
+              {{ user_obj.email }}
             </div>
             <div class="w-full flex flex-col xl:flex-row items-start xl:items-center justify-start xl:justify-center">
               <label for="password" class="left-0 space-y-2 xl:space-y-2 xl:pr-4 font-medium capitalize text-md text-center">Password</label>
@@ -40,6 +41,7 @@
                 id="password"
                 required
               />
+              {{  }}
             </div>
             <div class="flex flex-col w-full">
               <button

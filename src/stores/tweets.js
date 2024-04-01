@@ -65,12 +65,12 @@ export const useTweetStore = defineStore("tweets", {
       try{
         const auth = useAuthStore()
         const token = auth.token;
-        const res = await axios.post('/api/tweets', {
+        const res = await axios.post(`{process.env.VUE_APP_SEVER}/api/tweets`, {
           headers:{
             Authorization : `Bearer ${token}`,
           }
         })
-        this.tweets = res.data.tweets
+        console.log((res.data))
 
       }catch (e){
         console.log(e)

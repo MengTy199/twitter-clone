@@ -235,7 +235,7 @@ import { useUserStore } from "@/stores/user";
 import { mapActions } from 'pinia';
 export default {
   methods:{
-    ...mapActions(useTweetStore, ["logout"]),
+    ...mapActions(useTweetStore, ["createTweets"]),
 
   },
     setup() {
