@@ -10,7 +10,7 @@ export const useAuthStore = defineStore("auth", {
     actions: {
         async login(email, password) {
             try {
-                const {data} = await axios.post(process.env.VUE_APP_SEVER + "/api/auth/login", {
+                const {data} = await axios.post( "/api/auth/login", {
                     email: email, password: password
                 })
                 this.token = data.token//get token already form data object
