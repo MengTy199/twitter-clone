@@ -49,7 +49,7 @@ export const useTweetStore = defineStore("tweets", {
         const token = auth.token;
         console.log(id)
         // const response = await axios.get('http://localhost:3000/api/tweets')
-        const response = await axios.get(`/api/users/${id}/tweets`,{
+        const response = await axios.get(`${process.env.VUE_APP_SEVER}/api/users/${id}/tweets`,{
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -59,25 +59,9 @@ export const useTweetStore = defineStore("tweets", {
       }catch (e){
         console.log(e)
       }
+
     },
-
-    async createTweets(){
-      try{
-        const auth = useAuthStore()
-        const token = auth.token;
-        const res = await axios.post(`{process.env.VUE_APP_SEVER}/api/tweets`, {
-          headers:{
-            Authorization : `Bearer ${token}`,
-          }
-        })
-        console.log((res.data))
-
-      }catch (e){
-        console.log(e)
-      }
-    }
   },
-
 
   persist: true
 });

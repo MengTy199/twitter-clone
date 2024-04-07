@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="createTweets">
+  <form @submit.prevent="handleSubmit">
     <!-- container form -->
     <div
       class="w-full mb-4 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
@@ -232,12 +232,7 @@ import { onMounted, ref } from "vue";
 import { initFlowbite } from "flowbite";
 import { useTweetStore } from "@/stores/tweets";
 import { useUserStore } from "@/stores/user";
-import { mapActions } from 'pinia';
 export default {
-  methods:{
-    ...mapActions(useTweetStore, ["createTweets"]),
-
-  },
     setup() {
     const tweetStore = useTweetStore();
     const userStore = useUserStore();
@@ -252,15 +247,6 @@ export default {
       text: "",
       image: "",
     });
-    // const handleSubmit = () => {
-    //   tweetStore.addTweet(newTweet.value);
-    //   newTweet.value = {
-    //     // Reset the form (optional)
-    //     byUser: "",
-    //     text: "",
-    //     image: "",
-    //   };
-    // };
     const handleSubmit = () => {
       tweetStore.addTweet(newTweet.value);
       newTweet.value = {
@@ -271,7 +257,7 @@ export default {
       };
     };
     
-    return { handleSubmit, newTweet, };
+    return { handleSubmit,newTweet, };
   },
 
 };
