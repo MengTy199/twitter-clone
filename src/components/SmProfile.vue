@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-400 xs:w-450 md:w-450 xl:w-600 h-14 bg-gray-100 xl:hidden flex flex-row items-center justify-between px-2"
+    class="min-w-full h-14 bg-gray-100 xs:hidden flex flex-row items-center justify-between px-2"
   >
     <router-link to="/" @click="userStore.logout">
       <img :src="userStore.getpf" class="w-12 rounded-full" />

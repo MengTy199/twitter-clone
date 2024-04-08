@@ -1,6 +1,6 @@
 <template>
   <transition appear name="fade">
-    <div class="flex flex-col justify-center  ">
+    <div class="flex flex-col justify-start  ">
       <div
         class="border-b border-gray-200 dark:border-gray-700 md:sticky md:top-0 xl:sticky xl:top-0 bg-gray-50 z-10 shadow-md "
       >

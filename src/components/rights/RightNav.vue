@@ -1,13 +1,12 @@
 <template>
   <transition appear name="fade">
-  <div class="hidden md:block xl:block w-450 max-h-screen sticky top-0">
     <div
-      class="hidden md:flex flex-col px-5 md:w-350 xl:w-450 h-screen fixed top-2 "
+      class=" hidden xs:block top-0    "
     >
       <div
-        class="flex flex-col justify-center items-center sticky h-14 top-0 z-20 bg-white"
+        class=" flex flex-col justify-center items-center top-0 sticky  z-20"
       >
-        <div class="form w-full">
+        <div class="form w-full ">
           <form class="block">
             <label
               for="default-search"
@@ -34,13 +33,15 @@
                   />
                 </svg>
               </div>
+            <div class="bg-white">
               <input
                 type="search"
                 id="default-search"
-                class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-150 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-150 focus:ring-blue-500 focus:border-blue-500 bg-gray-200 dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search"
                 required
               />
+            </div>
             </div>
           </form>
         </div>
@@ -49,7 +50,7 @@
       <div class="overflow-y-scroll overflow-hidden example ">
         <!-- subscribe -->
         <box-right>
-          <div class="h-[150px] flex flex-col justify-center">
+          <div class="h-[150px] flex flex-col justify">
             <h1 class="font-bold text-xl mb-3">Subscribe to Premium</h1>
             <p class="text-sm mb-4">
               Subscribe to unlock new features and if eligible, receive a share
@@ -130,8 +131,6 @@
         </div>
       </div>
     </div>
-
-  </div>
 
   </transition>
 </template>

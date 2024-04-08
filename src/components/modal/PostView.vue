@@ -1,7 +1,7 @@
 <template>
   <transition appear name="fade">
     <div
-      class="h-full flex flex-col justify-center hover:bg-gray-100 transition ease-in-out duration-150 p-2 border-t-[1px]"
+      class="h-full w-auto flex flex-col justify-center hover:bg-gray-100 transition ease-in-out duration-150 p-2 border-t-[1px]"
     >
       <div class="flex flex-row justify-between">
         <div class="profile flex flex-row items-between px-2 py-2">
