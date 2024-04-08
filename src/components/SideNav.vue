@@ -2,7 +2,7 @@
   <transition appear name="fade">
     <div
         :class="p"
-        class="block md:w-[200px] xl:w-600 md:flex xl:flex xl:flex-row justify-end  top-0 h-screen md:sticky xl:sticky overflow-auto"
+        class="md:flex md:flex-row justify-end top-0 h-screen md:sticky xl:sticky  bg-white-300 "
     >
       <div class="flex justify-between flex-col h-screen items-center">
         <div
@@ -11,7 +11,7 @@
           <router-link  @click="logout" to="/" >
             <img
                 src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/f8dc5431091769.5640f77be5837.png"
-                class="w-16 md:w-20 xl:w-20 -left-5 hidden md:block xl:block"
+                class="w-12 md:w-14 xl:w-20 -left-5  md:block xl:block"
             />
           </router-link>
 
@@ -231,7 +231,7 @@
           />
         </div>
 
-        <div class="w-full xl:p-2 md:p-2 hidden md:block xl:block">
+        <div class="w-full xl:p-2 md:p-2">
           <div
               class="w-full py-2 xl:px-3 hover:bg-gray-200 hover:cursor-pointer xl:flex xl:flex-row justify-between rounded-full xl:items-center"
           >
@@ -256,7 +256,7 @@
                 </div>
               </div>
             </div>
-            <div class="icon">
+            <div class="icon md:block hidden">
               <i class="fa-solid fa-ellipsis"></i>
             </div>
           </div>

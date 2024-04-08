@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleSubmit">
+  <form @submit.prevent="handleSubmit"  class="min-w-full">
     <!-- container form -->
     <div
       class="w-full mb-4 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
@@ -18,7 +18,7 @@
 
       <!-- icon -->
       <div
-        class="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600"
+        class="flex items-center w-auto  justify-between  border-b dark:border-gray-600 "
       >
         <div
           class="flex flex-wrap items-center divide-gray-200 sm:divide-x sm:rtl:divide-x-reverse dark:divide-gray-600"

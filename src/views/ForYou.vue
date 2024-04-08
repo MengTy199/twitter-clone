@@ -3,7 +3,7 @@
     <middle-nav />
     <loading-page />
   </div> -->
-  <div class="w-400 xs:w-450 md:w-450 xl:w-600 border-[1px]">
+  <div class="w-auto xs:w-450 md:w-450 xl:w-600 border-[1px]">
       <InputForm />
     <div v-for="(tweet, index) in tweets" :key="index">
       <PostView :tweet="tweet"/>
