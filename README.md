@@ -1,4 +1,4 @@
-# twitter-clone
+# tw-clone-kk
 
 ## Project setup
 ```

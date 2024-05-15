@@ -1,65 +1,47 @@
 <template>
-  <div class="border-b border-gray-200 dark:border-dim-200 p-4  w-full mx-auto">
-    <div class="animate-pulse flex space-x-4 flex-col justify-between ">
-      <div class="rounded-full bg-gray-400 h-14 w-12"></div>
-      <div class="flex-1 space-y-4 py-1">
-        <div class="h-4 bg-gray-400 rounded w-3/4"></div>
-        <div class="space-y-2">
-          <div class="h-4 bg-gray-400 rounded ">
-            <div class="h-4 bg-gray-400 rounded w-5/6">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="flex-1 space-y-4 py-1">
-        <div class="h-4 bg-gray-400 rounded w-3/4"></div>
-        <div class="space-y-2">
-          <div class="h-4 bg-gray-400 rounded ">
-            <div class="h-4 bg-gray-400 rounded w-5/6">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex-1 space-y-4 py-1">
-        <div class="h-4 bg-gray-400 rounded w-3/4"></div>
-        <div class="space-y-2">
-          <div class="h-4 bg-gray-400 rounded ">
-            <div class="h-4 bg-gray-400 rounded w-5/6">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="flex-1 space-y-4 py-1">
-        <div class="h-4 bg-gray-400 rounded w-3/4"></div>
-        <div class="space-y-2">
-          <div class="h-4 bg-gray-400 rounded ">
-            <div class="h-4 bg-gray-400 rounded w-5/6">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="flex flex-col h-screen justify-center mx-auto">
+    <svg class="w-8 h-8 animate-spin-fast mx-auto">
+      <circle
+          cx="16"
+          cy="16"
+          fill="none"
+          r="14"
+          stroke-width="4"
+          style="stroke: rgb(29, 161, 242); opacity: 0.2"
+      ></circle>
+      <circle
+          cx="16"
+          cy="16"
+          fill="none"
+          r="14"
+          stroke-width="4"
+          style="
+                  stroke: rgb(29, 161, 242);
+                  stroke-dasharray: 80;
+                  stroke-dashoffset: 60;
+                "
+      ></circle>
+    </svg>
   </div>
 </template>
-
 <script>
 import {useAuthStore} from "@/stores/auth";
 import {mapActions} from "pinia";
 
 export default {
   async mounted() {
-    const code = await this.$route.query.code
-    try{
-        await this.googleLogin(code)
-        this.$router.push('/homePage')
-    }catch (e){
-      // this.$toast.open('Error Login');
+    const code = this.$route.query.code;
+    try {
+      await this.googleLogin(code);
+      this.$router.push('/home');
+    } catch (e) {
+      //Toast
+      this.$toast.open('Google Login Error');
     }
-  },
-  methods:{
-    ...mapActions(useAuthStore, ["googleLogin"])
-  }
 
+  },
+  methods: {
+    ...mapActions(useAuthStore, ['googleLogin'])
+  }
 }
 </script>

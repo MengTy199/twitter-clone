@@ -1,56 +1,60 @@
-import {defineStore} from "pinia";
-import axios from "axios";
+import { defineStore } from 'pinia'
+import axios from "axios"
 
-export const useAuthStore = defineStore("auth", {
+export const useAuthStore = defineStore('auth', {
     state: () => ({
         token: '',
-        loggedUser: {},// user object
-        userId: ''
+        loggedUser: {},
+        useId: ''
     }),
     actions: {
         async login(email, password) {
             try {
-                const {data} = await axios.post("/api/auth/login", {
-                    email: email, password: password
+                const { data } = await axios.post(process.env.VUE_APP_SERVER + '/api/auth/login', {
+                    email: email,
+                    password: password
                 })
-                this.token = data.token//get token already form data object
-
-                // axios
-                axios.defaults.headers.common['Authorization'] = data.token;
-                const response = await axios.get('/api/auth/me', {
+                this.token = data.token
+                const response = await axios.get(process.env.VUE_APP_SERVER + '/api/auth/me', {
                     headers: {
                         Authorization: `Bearer ${data.token}`
                     }
                 })
-                console.log(response.data.user.id)
+                this.useId = response.data.user.id
+                console.log(this.useId)
                 this.loggedUser = response.data.user
-                this.userId = response.data.user.id
             } catch (e) {
                 console.log(e)
             }
-        }, logout() {
-            this.token = ''
-            this.loggedUser = {}
         },
         async googleLogin(code) {
             try {
-                const {data} = await axios.get(`/api/auth/google?code=${code}`)
+                const { data } = await axios.get(process.env.VUE_APP_SERVER + `/api/auth/google/callback?code=${code}`)
                 this.token = data.token
-                const response = await axios.get('/api/auth/me', {
+                console.log(data.token)
+                const response = await axios.get(process.env.VUE_APP_SERVER + '/api/auth/me', {
                     headers: {
                         Authorization: `Bearer ${data.token}`
                     }
                 })
-
-                // console.log(response.data.user.id._id)
-                // console.log(response.data)
+                this.useId = response.data.user.id;
+                console.log(this.useId)
                 this.loggedUser = response.data.user
-                this.userId = response.data.user.id._id
-
-            }catch (e){
-                console.log("error")
+            } catch (e) {
+                console.log(e)
             }
+        },
+        logout() {
+            this.token = ''
+            this.loggedUser = {}
         }
     },
-    persist: true,
-});
+    getters: {
+        isAuthenticated() {
+            return this.token !== ''
+        },
+        getToken() {
+            return this.token
+        }
+    }
+})
