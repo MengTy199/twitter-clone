@@ -69,5 +69,5 @@ export const useAuthStore = defineStore("auth", {
       return this.token;
     },
   },
-  persist: true
+  persist: false
 });
