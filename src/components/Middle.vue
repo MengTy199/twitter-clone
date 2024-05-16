@@ -51,7 +51,7 @@
         </div>
       </div>
       <div class="w-full flex items-top p-2 text-white pl-14">
-        <!-- <a
+        <a
           href="#"
           class="text-blue-400 hover:bg-blue-50 dark:hover:bg-dim-800 rounded-full p-2"
         >
@@ -63,9 +63,9 @@
               <circle cx="8.868" cy="8.309" r="1.542"></circle>
             </g>
           </svg>
-        </a> -->
+        </a>
 
-        <div>
+        <!-- <div>
           <label
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             for="file_input"
@@ -76,7 +76,7 @@
             id="file_input"
             type="file"
           />
-        </div>
+        </div> -->
 
         <a
           href="#"
