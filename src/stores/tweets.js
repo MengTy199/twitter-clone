@@ -43,5 +43,6 @@ export const useTweetsStore = defineStore('tweets', {
         removeTweet(index) {
             this.tweets.splice(index, 1)
         }
-    }
+    },
+    persist: true
 })

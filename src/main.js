@@ -7,8 +7,10 @@ import ToastPlugin from 'vue-toast-notification';
 // Import one of the available themes
 //import 'vue-toast-notification/dist/theme-default.css';
 import 'vue-toast-notification/dist/theme-bootstrap.css';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate)
 const app = createApp(App)
 app.use(ToastPlugin);
 app.use(pinia)
