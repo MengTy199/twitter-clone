@@ -21,8 +21,8 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: prod
-          VUE_APP_ENV_GOOGLE_CALLBACK: ${{ vars.VUE_APP_ENV_GOOGLE_CALLBACK }}
-          VUE_APP_ENV_GOOGLE_CLIENT_ID: ${{ vars.VUE_APP_ENV_GOOGLE_CLIENT_ID }}
+          VUE_APP_ENV_GOOGLE_CALLBACK: ${{ vars.VUE_APP_GOOGLE_CALLBACK }}
+          VUE_APP_ENV_GOOGLE_CLIENT_ID: ${{ vars.VUE_APP_GOOGLE_CLIENT_ID }}
           VUE_APP_ENV_SERVER: ${{ vars.VUE_APP_SEVER }}
       - name: Write redirect file
         run: cd dist && echo '/*  /index.html  200' > _redirects
