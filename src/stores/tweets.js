@@ -11,7 +11,7 @@ export const useTweetsStore = defineStore('tweets', {
             const authStore = useAuthStore()
             const useId = authStore.useId
             try {
-                const response = await axios.get(process.env.VUE_APP_SERVER + `/api/users/${useId}/tweets`, {
+                const response = await axios.get(process.env.VUE_APP_ENV_SERVER + `/api/users/${useId}/tweets`, {
                     headers: {
                         'Authorization': `Bearer ${authStore.token}`
                     }
@@ -25,7 +25,7 @@ export const useTweetsStore = defineStore('tweets', {
         async addTweet(text) {
             const authStore = useAuthStore()
             try {
-                const response = await axios.post(process.env.VUE_APP_SERVER + '/api/tweets', {
+                const response = await axios.post(process.env.VUE_APP_ENV_SERVER + '/api/tweets', {
                     text: text
                 }, {
                     headers: {
