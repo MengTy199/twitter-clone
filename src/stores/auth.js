@@ -6,6 +6,7 @@ export const useAuthStore = defineStore("auth", {
     token: "",
     loggedUser: {},
     useId: "",
+    pictureProfie: ""
   }),
   actions: {
     async login(email, password) {
@@ -27,8 +28,10 @@ export const useAuthStore = defineStore("auth", {
           }
         );
         this.useId = response.data.user.id;
+        this.pictureProfie = "https://avatars.githubusercontent.com/u/117325886?s=400&u=1e2ddee9adada0ac73c6b06e6f9c207f1447c44c&v=4"
         console.log(this.useId);
         this.loggedUser = response.data.user;
+        console.log(response.data.user)
       } catch (e) {
         console.log(e);
       }
@@ -40,7 +43,6 @@ export const useAuthStore = defineStore("auth", {
             `/api/auth/google/callback?code=${code}`
         );
         this.token = data.token;
-        console.log(data.token);
         const response = await axios.get(
           process.env.VUE_APP_ENV_SERVER + "/api/auth/me",
           {
@@ -50,7 +52,9 @@ export const useAuthStore = defineStore("auth", {
           }
         );
         this.useId = response.data.user.id;
-        console.log(this.useId);
+        this.pictureProfie = response.data.user.pictureImage;
+        console.log(response.data.user)
+        console.log(this.pictureProfie)
         this.loggedUser = response.data.user;
       } catch (e) {
         console.log(e);
@@ -69,5 +73,5 @@ export const useAuthStore = defineStore("auth", {
       return this.token;
     },
   },
-  persist: true
+  persist: false
 });

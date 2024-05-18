@@ -16,7 +16,6 @@ export const useTweetsStore = defineStore('tweets', {
                         'Authorization': `Bearer ${authStore.token}`
                     }
                 })
-                console.log(response.data.tweets)
                 this.tweets = response.data.tweets
             } catch (e) {
                 console.log(e)

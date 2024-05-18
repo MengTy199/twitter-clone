@@ -37,8 +37,8 @@
         <div class="w-12 flex items-top">
           <img
             class="inline-block h-10 w-10 rounded-full"
-            src="https://avatars.githubusercontent.com/u/117325886?s=400&u=1e2ddee9adada0ac73c6b06e6f9c207f1447c44c&v=4"
-            alt=""
+            :src='pictureProfie'
+            :alt="pictureProfie"
           />
         </div>
         <div class="w-full p-2">
@@ -208,6 +208,7 @@
 import Tweet from "@/components/Tweet.vue";
 import { mapActions, mapState } from "pinia";
 import { useTweetsStore } from "@/stores/tweets";
+import { useAuthStore } from "@/stores/auth";
 
 export default {
   name: "Middle",
@@ -222,6 +223,7 @@ export default {
   },
   computed: {
     ...mapState(useTweetsStore, ["tweets"]),
+    ...mapState(useAuthStore, ["pictureProfie"]),
   },
   methods: {
     ...mapActions(useTweetsStore, ["fetchTweets", "addTweet"]),

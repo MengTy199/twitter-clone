@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-parsing-error -->
 <template>
   <div
     class="border-b border-gray-200 dark:border-dim-200 hover:bg-gray-100 dark:hover:bg-dim-300 cursor-pointer transition duration-350 ease-in-out pb-4 border-l border-r"
@@ -8,8 +9,8 @@
           <div>
             <img
               class="inline-block h-9 w-9 rounded-full"
-              src="https://avatars.githubusercontent.com/u/117325886?s=400&u=1e2ddee9adada0ac73c6b06e6f9c207f1447c44c&v=4"
-              alt=""
+              :src="pictureProfie"
+              :alt="pictureProfie"
             />
           </div>
           <div class="ml-3">
@@ -41,24 +42,17 @@
     </div>
     <div class="pl-16">
       <p
-        class="text-base width-auto font-medium text-gray-800 dark:text-white flex-shrink"
+        class="text-base width-auto font-medium text-gray-800 dark:text-white flex-shrink my-6"
       >
         {{ tweet.text }}
       </p>
-
-      <!-- <div class="flex my-3 mr-2 rounded-2xl border border-gray-600">
-        <img
-          class="rounded-2xl"
-          src="https://pbs.twimg.com/media/EnTkhz-XYAEH2kY?format=jpg&name=small"
-          alt=""
-        />
-      </div> -->
-
       <div class="flex">
         <div class="w-full">
           <div class="flex items-center">
             <div
+              @click="likeTweet"
               class="flex-1 flex items-center text-gray-800 dark:text-white text-xs hover:text-blue-400 dark:hover:text-blue-400 transition duration-350 ease-in-out"
+              :class="{ 'text-blue-700': active }"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2">
                 <g>
@@ -67,10 +61,12 @@
                   ></path>
                 </g>
               </svg>
-              12.3 k
+            <p   :class="{ 'text-blue-700': active }">{{ like }}</p>
             </div>
             <div
-              class="flex-1 flex items-center text-gray-800 dark:text-white text-xs hover:text-green-400 dark:hover:text-green-400 transition duration-350 ease-in-out"
+              @click="shareTweet"
+              class="flex-1 flex items-center text-gray-800 dark:text-white text-xs hover:text-c-400 dark:hover:text-green-400 transition duration-350 ease-in-out"
+              :class="{ 'text-green-700': active2 }"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2">
                 <g>
@@ -79,10 +75,12 @@
                   ></path>
                 </g>
               </svg>
-              14 k
+            {{share}}
             </div>
             <div
+              @click="heartTweet"
               class="flex-1 flex items-center text-gray-800 dark:text-white text-xs hover:text-red-600 dark:hover:text-red-600 transition duration-350 ease-in-out"
+              :class="{ 'text-red-700': active3 }"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2">
                 <g>
@@ -91,7 +89,7 @@
                   ></path>
                 </g>
               </svg>
-              14 k
+              {{heart}}
             </div>
             <div
               class="flex-1 flex items-center text-gray-800 dark:text-white text-xs hover:text-blue-400 dark:hover:text-blue-400 transition duration-350 ease-in-out"
@@ -128,6 +126,12 @@ export default {
     return {
       user: {},
       moment: moment,
+      like: 0,
+      share: 0,
+      heart: 0,
+      active: false,
+      active2: false,
+      active3: false,
     };
   },
   async created() {
@@ -139,7 +143,21 @@ export default {
     this.user = data;
   },
   computed: {
-    ...mapState(useAuthStore, ["getToken"]),
-  },  
+    ...mapState(useAuthStore, ["getToken", "pictureProfie"]),
+  },
+  methods: {
+    likeTweet() {
+      if (this.like == 1) return this.like = 0 , this.active = false;
+      return (this.like += 1 , this.active = true);
+    },
+    shareTweet() {
+      if (this.share == 1) return this.share = 0 , this.active2 = false;
+      return (this.share += 1 , this.active2 = true);
+    },
+    heartTweet() {
+      if (this.heart == 1) return this.heart = 0 , this.active3 = false;
+      return (this.heart += 1 , this.active3 = true);
+    },
+  },
 };
 </script>

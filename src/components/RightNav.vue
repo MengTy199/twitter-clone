@@ -97,16 +97,16 @@
             <div class="flex flex-row">
               <img
                   class="w-10 h-10 rounded-full"
-                  src="https://avatars.githubusercontent.com/u/117325886?s=400&u=1e2ddee9adada0ac73c6b06e6f9c207f1447c44c&v=4"
-                  alt="Mengty"
+                  :src=' pictureProfie'
+                  :alt='loggedUser.name'
               />
               <div class="flex flex-col ml-2">
                 <h1
                     class="text-gray-900 dark:text-white font-bold text-sm"
                 >
-                  Mengty
+                  {{ loggedUser.username }}
                 </h1>
-                <p class="text-gray-400 text-sm">@Mengty</p>
+                <p class="text-gray-400 text-sm">@{{loggedUser.email}}</p>
               </div>
             </div>
             <div class="">
@@ -132,16 +132,16 @@
             <div class="flex flex-row">
               <img
                   class="w-10 h-10 rounded-full"
-                  src="https://avatars.githubusercontent.com/u/117325886?s=400&u=1e2ddee9adada0ac73c6b06e6f9c207f1447c44c&v=4"
-                  alt="Mengty"
+                  :src=' pictureProfie'
+                  :alt='loggedUser.name'
               />
               <div class="flex flex-col ml-2">
                 <h1
                     class="text-gray-900 dark:text-white font-bold text-sm"
                 >
-                Mengty
+                {{ loggedUser.username }}
                 </h1>
-                <p class="text-gray-400 text-sm">@Mengty</p>
+                <p class="text-gray-400 text-sm"><span>@{{ loggedUser.email }}</span></p>
               </div>
             </div>
             <div class="">
@@ -208,12 +208,17 @@
   </div>
 </template>
 <script>
+import { mapState } from 'pinia'
+import { useAuthStore } from '@/stores/auth'
 export default {
   name: "RightNav",
   data(){
     return{
       date: new Date().getFullYear()
     }
-  }
+  },
+  computed: {
+    ...mapState(useAuthStore, ['loggedUser', 'pictureProfie']),
+  },
 }
 </script>

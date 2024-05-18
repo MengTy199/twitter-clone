@@ -178,7 +178,7 @@
         <div class="flex flex-row">
           <img
               class="w-10 h-10 rounded-full"
-              src="https://avatars.githubusercontent.com/u/117325886?s=400&u=1e2ddee9adada0ac73c6b06e6f9c207f1447c44c&v=4"
+              :src=' pictureProfie'
               alt="Mengty"
           />
           <div class="hidden xl:block  flex-col ml-2">
@@ -224,7 +224,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useAuthStore, ['loggedUser'])
-  }
+    ...mapState(useAuthStore, ['loggedUser', 'pictureProfie']),
+  },
 }
 </script>
